@@ -1,0 +1,97 @@
+.voice-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+.mic-button {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  background: var(--glass-surface-2);
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 150ms ease, border-color 150ms ease;
+  color: var(--text-secondary);
+  font-size: 28px;
+}
+
+.mic-button:hover {
+  transform: scale(1.05);
+}
+
+.mic-button--listening {
+  border-color: var(--accent-ai);
+  color: var(--accent-ai);
+  animation: micPulse 1s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-ai) 40%, transparent); }
+  50%       { box-shadow: 0 0 0 12px transparent; }
+}
+
+.voice-overlay__wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+}
+
+.voice-overlay__wave span {
+  width: 3px;
+  background: var(--accent-ai);
+  border-radius: var(--radius-full);
+  animation: wave 0.6s ease-in-out infinite alternate;
+}
+
+.voice-overlay__wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+.voice-overlay__wave span:nth-child(2) { height: 16px; animation-delay: 0.1s; }
+.voice-overlay__wave span:nth-child(3) { height: 24px; animation-delay: 0.2s; }
+.voice-overlay__wave span:nth-child(4) { height: 16px; animation-delay: 0.3s; }
+.voice-overlay__wave span:nth-child(5) { height: 8px; animation-delay: 0.4s; }
+
+@keyframes wave {
+  from { transform: scaleY(0.4); }
+  to   { transform: scaleY(1); }
+}
+
+.voice-overlay__chip {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.voice-overlay__chip--matched {
+  background: color-mix(in srgb, var(--accent-ai) 15%, var(--glass-surface));
+  border: 1px solid var(--accent-ai);
+  color: var(--text-primary);
+}
+
+.voice-overlay__chip--nomatch {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+}
+
+.voice-overlay__chip--transcript {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mic-button--listening {
+    animation: none;
+  }
+  .voice-overlay__wave span {
+    animation: none;
+  }
+}

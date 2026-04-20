@@ -1,0 +1,90 @@
+/* ── Node Card ─────────────────────────────── */
+.node-card {
+  background: var(--glass-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  min-width: 180px;
+  max-width: 220px;
+  cursor: grab;
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+  user-select: none;
+  overflow: hidden;
+}
+
+.node-card:hover {
+  box-shadow: 0 0 0 1px var(--node-type-color), 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.node-card--selected {
+  box-shadow: 0 0 0 2px var(--node-type-color), 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* Colored header band */
+.node-card__type-bar {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--node-type-color);
+  background: color-mix(in srgb, var(--node-type-color) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--node-type-color) 20%, transparent);
+}
+
+.node-card__body {
+  padding: var(--space-2) var(--space-3) var(--space-3);
+}
+
+.node-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.node-card__header .codicon {
+  font-size: 14px;
+  color: var(--node-type-color);
+}
+
+.node-card__title {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-card__meta {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  margin-top: var(--space-1);
+  display: block;
+  white-space: nowrap;
+  font-family: monospace;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-overflow: clip;
+  scrollbar-width: thin;
+}
+
+/* Connection port dots */
+.node-card__port {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--glass-surface-2);
+  border: 2px solid var(--node-type-color);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.node-card__port--out {
+  right: -5px;
+}
+
+.node-card__port--in {
+  left: -5px;
+}

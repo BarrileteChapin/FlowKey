@@ -1,0 +1,232 @@
+/* ── Shell ────────────────────────────────────── */
+.flow-editor-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: var(--space-3);
+  gap: var(--space-3);
+  background: var(--glass-bg);
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+}
+
+/* ── 3-Column Body (palette | canvas | inspector) ── */
+.flow-editor-body {
+  display: flex;
+  gap: var(--space-3);
+  flex: 1;
+  min-height: 0;
+}
+
+.flow-editor-help {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.flow-editor-help span {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--glass-surface-2);
+  white-space: nowrap;
+}
+
+.flow-editor-help strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.flow-bind {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+}
+
+.flow-bind__label {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.flow-bind__select {
+  background: var(--glass-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-2);
+  min-width: 140px;
+}
+
+.flow-bind__input {
+  background: var(--glass-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  padding: var(--space-1) var(--space-2);
+  min-width: 140px;
+}
+
+.flow-bind__input--wide {
+  min-width: 220px;
+  flex: 1;
+}
+
+.flow-bind__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: 1px solid color-mix(in srgb, var(--accent-navigation) 35%, var(--glass-border));
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--accent-navigation) 16%, var(--glass-surface-2));
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+}
+
+.flow-bind__btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.flow-bind__status {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.flow-bind__select:focus-visible,
+.flow-bind__input:focus-visible,
+.flow-bind__btn:focus-visible {
+  outline: 2px solid var(--profile-accent);
+  outline-offset: 2px;
+}
+
+/* ── Bottom Dock (saved flows) ── */
+.flow-dock {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.flow-dock__flows {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.flow-dock__empty {
+  font-size: var(--text-sm);
+  color: var(--text-faint);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  border: 1px dashed var(--glass-border);
+  background: color-mix(in srgb, var(--glass-surface-2) 65%, transparent);
+}
+
+.flow-dock__chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: var(--glass-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.flow-dock__chip:hover {
+  background: var(--glass-border-hover);
+  color: var(--text-primary);
+}
+
+.flow-dock__chip--active {
+  background: color-mix(in srgb, var(--accent-navigation) 15%, var(--glass-surface-2));
+  border-color: color-mix(in srgb, var(--accent-navigation) 30%, transparent);
+  color: var(--text-primary);
+}
+
+.flow-dock__chip .codicon {
+  font-size: 12px;
+}
+
+/* ── Log (dry-run preview) ── */
+.flow-editor-log {
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.flow-editor-log h4 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.flow-editor-log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.log-step {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--glass-surface-2);
+}
+
+.log-step--error {
+  color: var(--color-error);
+}
+
+.log-step--skipped {
+  opacity: 0.5;
+}

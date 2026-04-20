@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; npm run build",
+      "group": "build",
+      "label": "npm: build",
+      "problemMatcher": []
+    }
+  ]
+}
