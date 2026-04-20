@@ -3,7 +3,7 @@
   "displayName": "FlowKey",
   "description": "HUD, flow editor, and accessibility triggers for VS Code.",
   "version": "0.1.0",
-  "publisher": "flowkey",
+  "publisher": "CarlosLeon",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "icon": "media/marketplace-icon.png",
   "main": "./dist/extension.js",
   "files": [
     "dist/**",
