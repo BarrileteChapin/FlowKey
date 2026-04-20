@@ -2,7 +2,7 @@
   "name": "flowkey",
   "displayName": "FlowKey",
   "description": "HUD, flow editor, and accessibility triggers for VS Code.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "CarlosLeon",
   "license": "Apache-2.0",
   "repository": {
