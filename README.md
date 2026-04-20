@@ -47,7 +47,7 @@ Each feature can have a primary shortcut, a double-press trigger, and an externa
 ## Development
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 npm run build
 ```
 
@@ -65,5 +65,3 @@ npm run test:webview
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
-
-More implementation docs are available in `docs/`.
